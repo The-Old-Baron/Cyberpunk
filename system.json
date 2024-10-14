@@ -1,0 +1,30 @@
+{
+    "id": "cyber",
+    "title": "Cyberpunk",
+    "description": "Cyberpunk is a subgenre of science fiction in a dystopian futuristic setting that tends to focus on a \"combination of low-life and high tech\" featuring advanced technological and scientific achievements, such as artificial intelligence and cybernetics, juxtaposed with a degree of breakdown or radical change in the social order.",
+    "version": "0.0.1",
+    "compatibility": {
+        "minimum": "11.315",
+        "verified": "12"
+    },
+    "authors": [
+        {
+            "name": "Atropos",
+            "url": "https://foundryvtt.com",
+            "flags": {}
+        }
+    ],
+    "esmodules":["cyberpunk.js"],
+    "scripts": ["cyberpunk.css"],
+    "packs":[],
+    "languages": [],
+    "socket": true,
+    "gridDistance": 1,
+    "gridUnits": "meters",
+    "primaryTokenAttribute": "attributes.hp",
+    "flags": {
+        "needsMigrationVersion": "3.1.0",
+        "compatibleMigrationVersion": "0.8",
+        "hotReload": false
+    }
+}
