@@ -1,56 +1,387 @@
 {
-    "Actor": {
-      "types": [
-        "character",
-        "npc",
-        "vehicle",
-        "group"
-      ],
-      "htmlFields": [
-        "details.biography.value",
-        "details.biography.public",
-        "description.full",
-        "description.summary"
-      ]
-    },
-    "Item": {
-      "types": [
-        "weapon",
-        "equipment",
-        "consumable",
-        "tool",
-        "loot",
-        "race",
-        "background",
-        "class",
-        "subclass",
-        "spell",
-        "feat",
-        "container",
-        "backpack"
-      ],
-      "htmlFields": [
-        "description.value",
-        "description.chat",
-        "unidentified.description"
-      ]
-    },
-    "JournalEntryPage": {
-      "types": [
-        "class",
-        "map",
-        "rule",
-        "spells",
-        "subclass"
-      ],
-      "htmlFields": [
-        "description.value",
-        "description.additionalHitPoints",
-        "description.additionalTraits",
-        "description.additionalEquipment",
-        "description.subclass",
-        "tooltip"
-      ]
+  "Actor": {
+    "types": ["character", "npc", "creature", "vehicle"],
+    "templates": {
+      "caracteristics": {
+        "characteristics": {
+          "strength": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.STR",
+            "label": "CHARAC.Strength",
+            "description": "CHARAC.StrengthDescription",
+            "formula": null,
+            "bonusDice": 0
+          },
+          "reflexes": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.REF",
+            "label": "CHARAC.Reflexes",
+            "description": "CHARAC.ReflexesDescription",
+            "formula": null,
+            "bonusDice": 0
+          },
+          "intelligence": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.INT",
+            "label": "CHARAC.Intelligence",
+            "description": "CHARAC.IntelligenceDescription",
+            "formula": null,
+            "bonusDice": 0
+          },
+          "tehc": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.TEh",
+            "label": "CHARAC.Tehc",
+            "description": "CHARAC.ThecDescription",
+            "formula": null,
+            "bonusDice": 0
+          },
+          "body": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.BOD",
+            "label": "CHARAC.Body",
+            "description": "CHARAC.BodyDescription",
+            "formula": null,
+            "bonusDice": 0
+          },
+          "cool": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.COO",
+            "label": "CHARAC.Cool",
+            "description": "CHARAC.CoolDescription",
+            "formula": null,
+            "bonusDice": 0
+          },
+          "ram": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.RAM",
+            "label": "CHARAC.Ram",
+            "description": "CHARAC.RamDescription",
+            "formula": null,
+            "bonusDice": 0
+          },
+          "appearance": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.APP",
+            "label": "CHARAC.Appearance",
+            "description": "CHARAC.AppearanceDescription",
+            "formula": null,
+            "bonusDice": 0
+          },
+          "education": {
+            "value": null,
+            "tempValue": null,
+            "short": "CHARAC.EDU",
+            "label": "CHARAC.Education",
+            "description": "CHARAC.EducationDescription",
+            "formula": null,
+            "bonusDice": 0
+          }
+        }
+      },
+      "attribs": {
+        "attribs": {
+          "hp": {
+            "value": null,
+            "max": null,
+            "short": "HP",
+            "label": "Hit points",
+            "auto": true
+          },
+          "lck": {
+            "value": null,
+            "short": "LCK",
+            "label": "Luck",
+            "max": 99,
+            "bonusDice": 0
+          },
+          "san": {
+            "value": null,
+            "max": 99,
+            "short": "SAN",
+            "label": "Sanity",
+            "auto": true,
+            "dailyLoss": 0,
+            "oneFifthSanity": " / 0",
+            "bonusDice": 0
+          },
+          "mov": {
+            "value": null,
+            "max": null,
+            "short": "MOV",
+            "label": "Movement rate",
+            "auto": true
+          },
+          "db": {
+            "value": null,
+            "short": "DB",
+            "label": "Damage bonus",
+            "auto": true
+          }
+        }
+      },
+
+      "status": {
+        "conditions": {
+          "criticalWounds": {
+            "value": false,
+            "description": "Conditions.CriticalWounds"
+          },
+          "unconscious": {
+            "value": false,
+            "description": "Conditions.Unconscious"
+          },
+          "dying": {
+            "value": false,
+            "description": "Conditions.Dying"
+          },
+          "dead": {
+            "value": false,
+            "description": "Conditions.Dead"
+          },
+          "prone": {
+            "value": false,
+            "description": "Conditions.Prone"
+          },
+          "hacked": {
+            "value": false,
+            "description": "Conditions.Hacked"
+          },
+          "overclocked": {
+            "value": false,
+            "description": "Conditions.Overclocked"
+          },
+          "overheated": {
+            "value": false,
+            "description": "Conditions.Overheated"
+          },
+          "empDisrupted": {
+            "value": false,
+            "description": "Conditions.EMPDisrupted"
+          },
+          "tempoInsane": {
+            "value": false,
+            "description": "Conditions.TemporaryInsane"
+          },
+          "indefInsane": {
+            "value": false,
+            "description": "Conditions.IndefinitelyInsane"
+          },
+          "blinded": {
+            "value": false,
+            "description": "Conditions.Blinded"
+          },
+          "poisoned": {
+            "value": false,
+            "description": "Conditions.Poisoned"
+          },
+          "stunned": {
+            "value": false,
+            "description": "Conditions.Stunned"
+          },
+          "paralyzed": {
+            "value": false,
+            "description": "Conditions.Paralyzed"
+          },
+          "hidden": {
+            "value": false,
+            "description": "Conditions.Hidden"
+          },
+          "boosted": {
+            "value": false,
+            "description": "Conditions.Boosted"
+          },
+          "shielded": {
+            "value": false,
+            "description": "Conditions.Shielded"
+          },
+          "infected": {
+            "value": false,
+            "description": "Conditions.Infected"
+          },
+          "fearful": {
+            "value": false,
+            "description": "Conditions.Fearful"
+          },
+          "inspired": {
+            "value": false,
+            "description": "Conditions.Inspired"
+          },
+          "focused": {
+            "value": false,
+            "description": "Conditions.Focused"
+          }
+        }
+      },
+      "biography": {
+        "personalDescription": {
+          "type": "string",
+          "value": ""
+        }
+      },
+      "Character": {
+        "templates": ["caracteristics", "attribs", "status", "biography"],
+        "infos": {
+          "occupation": {
+            "value": "",
+            "description": "The character's current job or role in society."
+          },
+          "age": {
+            "value": "",
+            "description": "The character's age in years."
+          },
+          "sex": {
+            "value": "",
+            "description": "The character's biological or identified gender."
+          },
+          "residence": {
+            "value": "",
+            "description": "The character's current place of residence."
+          },
+          "birthplace": {
+            "value": "",
+            "description": "The location where the character was born."
+          },
+          "archetype": {
+            "value": "",
+            "description": "The character's overarching role or class (e.g., Netrunner, Solo, Techie)."
+          },
+          "organization": {
+            "value": "",
+            "description": "The faction or group the character is affiliated with."
+          },
+          "playername": {
+            "value": "",
+            "description": "The name of the player controlling this character."
+          },
+          "notoriety": {
+            "value": 0,
+            "description": "The character's reputation or infamy in the world."
+          },
+          "affiliation": {
+            "value": "",
+            "description": "The specific team, gang, or corporate entity the character is allied with."
+          },
+          "loyalty": {
+            "value": "",
+            "description": "The character's degree of loyalty to their organization or group."
+          }
+        },
+        "flags": {
+          "locked": true,
+          "manualCredit": false
+        },
+        "monetary": {
+          "format": "decimalLeft",
+          "symbol": "₵",
+          "values": [
+            {
+              "name": "Cyberpunk.MonetaryDefaultPenniless",
+              "min": null,
+              "max": 0,
+              "cashType": "value",
+              "cashValue": 0.5,
+              "assetsType": "value",
+              "assetsValue": 0,
+              "spendingType": "value",
+              "spendingValue": 0.5,
+              "description": "A character with no money, relying on scraps or charity to survive."
+            },
+            {
+              "name": "Cyberpunk.MonetaryDefaultPoor",
+              "min": 1,
+              "max": 9,
+              "cashType": "multiplier",
+              "cashValue": 1,
+              "assetsType": "multiplier",
+              "assetsValue": 10,
+              "spendingType": "value",
+              "spendingValue": 2,
+              "description": "A character scraping by, with just enough to cover basic needs."
+            },
+            {
+              "name": "Cyberpunk.MonetaryDefaultAverage",
+              "min": 10,
+              "max": 49,
+              "cashType": "multiplier",
+              "cashValue": 2,
+              "assetsType": "multiplier",
+              "assetsValue": 50,
+              "spendingType": "value",
+              "spendingValue": 10,
+              "description": "A middle-class character, able to afford some comforts."
+            },
+            {
+              "name": "Cyberpunk.MonetaryDefaultWealthy",
+              "min": 50,
+              "max": 89,
+              "cashType": "multiplier",
+              "cashValue": 5,
+              "assetsType": "multiplier",
+              "assetsValue": 500,
+              "spendingType": "value",
+              "spendingValue": 50,
+              "description": "A character with significant disposable income and influence."
+            },
+            {
+              "name": "Cyberpunk.MonetaryDefaultRich",
+              "min": 90,
+              "max": 98,
+              "cashType": "multiplier",
+              "cashValue": 20,
+              "assetsType": "multiplier",
+              "assetsValue": 2000,
+              "spendingType": "value",
+              "spendingValue": 250,
+              "description": "A character living in luxury, with the means to shape their surroundings."
+            },
+            {
+              "name": "Cyberpunk.MonetaryDefaultSuperRich",
+              "min": 99,
+              "max": null,
+              "cashType": "value",
+              "cashValue": 50000,
+              "assetsType": "value",
+              "assetsValue": 5000000,
+              "spendingType": "value",
+              "spendingValue": 5000,
+              "description": "A character with unimaginable wealth, often tied to corporate or criminal empires."
+            }
+          ],
+          "spent": "",
+          "assetsDetails": "",
+          "spendingLevel": "",
+          "cash": "",
+          "assets": ""
+        },
+        "development": {
+          "personal": null,
+          "occupation": null,
+          "archetype": null,
+          "role": null,
+          "family": null,
+          "style": null
+        },
+        "biography": [],
+        "sanityLossEvents": [],
+        "backstory": "",
+        "indefiniteInsanityLevel": {
+          "value": 0,
+          "max": 0
+        },
+        "description": {
+          "keeper": ""
+        },
+        "notes": ""
+      }
     }
   }
-  
+}
